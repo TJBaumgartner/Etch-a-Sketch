@@ -16,7 +16,8 @@ function gridInput(){
     }
     createGrid(numberOfDivs);
 }
-
+grid.style.gridTemplateRows = `repeat(${numberOfDivs}, 1fr)`;
+grid.style.gridTemplateColumns = `repeat(${numberOfDivs}, 1fr)`;
 
 function createGrid(numberOfDivs){
     console.log(grid.childElementCount);
