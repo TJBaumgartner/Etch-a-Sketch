@@ -4,15 +4,18 @@ const buttonGrid = document.getElementById('buttonGrid');
 
 
 
-buttonGrid.addEventListener('click', () =>{
-    let numberOfDivs = prompt("Enter Grid Dimensions", "16");
+buttonGrid.addEventListener('click', gridInput);
+
+function gridInput(){
+    numberOfDivs = prompt("Enter Grid Dimensions", "16");
     if(numberOfDivs > 100){
-        let numberOfDivs = prompt("Too big, keep it under 100", "16");
+        numberOfDivs = prompt("Too big, keep it under 100", "16");
     }
     if(numberOfDivs < 0){
-        let numberOfDivs = prompt("Too small, keep it under 0", "16");
+        numberOfDivs = prompt("Too small, keep it under 0", "16");
     }
-});
+    alert(numberOfDivs)
+}
 
 
 function createGrid(numberOfDivs){
@@ -23,4 +26,7 @@ function createGrid(numberOfDivs){
             grid.appendChild(square);
         }
     }
+}
+window.onload = () => {
+    createGrid(numberOfDivs);
 }
