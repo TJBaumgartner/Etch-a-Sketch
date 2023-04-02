@@ -19,10 +19,14 @@ function gridInput(){
 
 
 function createGrid(numberOfDivs){
+    console.log(grid.childElementCount);
+    while(grid.firstChild){
+        grid.removeChild(grid.firstChild);
+    }
     for(divColumns = 0; divColumns < numberOfDivs; divColumns++){
         for(divRows = 0; divRows < numberOfDivs; divRows++){
             let square = document.createElement('div');
-            square.classNamed = 'square';
+            square.className = 'square';
             grid.appendChild(square);
         }
     }
