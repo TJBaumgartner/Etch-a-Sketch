@@ -6,3 +6,9 @@
     list-style: none;
     text-decoration: none;
 }
+.square {
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+    background-color: grey;
+}
