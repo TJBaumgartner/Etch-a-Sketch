@@ -1,5 +1,5 @@
 let numberOfDivs = 16;
-const grid = document.getElementByID('containerGrid');
+const grid = document.getElementById('containerGrid');
 const buttonGrid = document.getElementById('buttonGrid');
 
 
@@ -14,7 +14,7 @@ function gridInput(){
     if(numberOfDivs < 0){
         numberOfDivs = prompt("Too small, keep it under 0", "16");
     }
-    alert(numberOfDivs)
+    createGrid(numberOfDivs);
 }
 
 
