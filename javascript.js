@@ -12,25 +12,39 @@ function gridInput(){
         numberOfDivs = prompt("Too big, keep it under 100", "16");
     }
     if(numberOfDivs < 0){
-        numberOfDivs = prompt("Too small, keep it under 0", "16");
+        numberOfDivs = prompt("Too small, keep it over 0", "16");
     }
     createGrid(numberOfDivs);
 }
-grid.style.gridTemplateRows = `repeat(${numberOfDivs}, 1fr)`;
-grid.style.gridTemplateColumns = `repeat(${numberOfDivs}, 1fr)`;
+
+
 
 function createGrid(numberOfDivs){
-    console.log(grid.childElementCount);
     while(grid.firstChild){
         grid.removeChild(grid.firstChild);
     }
+    grid.style.gridTemplateRows = `repeat(${numberOfDivs}, 1fr)`;
+    grid.style.gridTemplateColumns = `repeat(${numberOfDivs}, 1fr)`;
     for(divColumns = 0; divColumns < numberOfDivs; divColumns++){
         for(divRows = 0; divRows < numberOfDivs; divRows++){
             let square = document.createElement('div');
             square.className = 'square';
             grid.appendChild(square);
+            square.addEventListener('mouseover', color); 
+            square.addEventListener('mousedown', color);
         }
     }
+}
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+function color (e) {
+    if(e.type === 'mouseover' && mouseDown == false){
+        return;  
+    } else if(e.type === 'mouseover' && mouseDown == true){
+        this.classList.add('colorIn');
+    }
+        
 }
 window.onload = () => {
     createGrid(numberOfDivs);
