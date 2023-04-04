@@ -31,7 +31,12 @@ body{
     height: 500px;
     width: 200px;
     background-color: rgb(90, 90, 90);
+    text-align: center;
 }
-.colorIn{
-    background-color: black;
+button {
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(46, 46, 46);
+    color: white;
+    font-size: 20px;
 }
